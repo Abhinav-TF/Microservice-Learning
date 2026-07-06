@@ -1,0 +1,28 @@
+server:
+    port: 8081
+
+spring:
+    application:
+        name: product-service
+    data:
+        mongodb:
+            uri: mongodb://localhost:27017/productdb        # his own local Mongo
+
+eureka:
+    client:
+        service-url:
+            # YOUR Eureka server, exposed via YOUR zrok share (zrok share public localhost:8761)
+            defaultZone: https://admin:admin123@myidjdi2atpo.shares.zrok.io/eureka/
+    instance:
+        prefer-ip-address: false
+        hostname: 4uf7vudd167c.shares.zrok.io          # Service URL from zrok share
+        nonSecurePortEnabled: false
+        securePortEnabled: true
+        securePort: 443
+        statusPageUrl: https://4uf7vudd167c.shares.zrok.io/actuator/info
+        healthCheckUrl: https://4uf7vudd167c.shares.zrok.io/actuator/health
+        homePageUrl: https://4uf7vudd167c.shares.zrok.io/
+
+logging:
+    level:
+        com.tnf.productservice: DEBUG
