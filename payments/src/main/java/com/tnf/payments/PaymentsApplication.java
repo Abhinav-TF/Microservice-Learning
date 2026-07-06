@@ -1,13 +1,13 @@
-package com.tnf.payment_service;
+package com.tnf.payments;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PaymentServiceApplication {
+public class PaymentsApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PaymentServiceApplication.class, args);
+		SpringApplication.run(PaymentsApplication.class, args);
 	}
 
 }

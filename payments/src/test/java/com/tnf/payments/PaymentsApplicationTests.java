@@ -1,10 +1,10 @@
-package com.tnf.payment_service;
+package com.tnf.payments;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class PaymentServiceApplicationTests {
+class PaymentsApplicationTests {
 
 	@Test
 	void contextLoads() {
