@@ -20,6 +20,16 @@ spring:
         uri: lb://ORDER-SERVICE
         predicates:
         - Path=/api/orders/**
+      - id: payment-service
+        uri: lb://PAYMENT-SERVICE
+        predicates:
+        - Path=/api/payments/**
+        filters:
+          - StripPrefix=1
+          - name: CircuitBreaker
+            args:
+              name: paymentServiceCircuitBreaker
+              fallbackUri: forward:/fallback/payments
 eureka:
   client:
     service-url:

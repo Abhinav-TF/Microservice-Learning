@@ -16,11 +16,29 @@ public class Order {
     private Integer quantity;
     private BigDecimal totalPrice;
     private String status;
+    private String paymentTransactionId;
+    private String paymentStatus;
     private LocalDateTime orderDate;
 
     public Order() {
         this.status = "PENDING";
         this.orderDate = LocalDateTime.now();
+    }
+
+    public String getPaymentTransactionId() {
+        return paymentTransactionId;
+    }
+
+    public void setPaymentTransactionId(String paymentTransactionId) {
+        this.paymentTransactionId = paymentTransactionId;
+    }
+
+    public String getPaymentStatus() {
+        return paymentStatus;
+    }
+
+    public void setPaymentStatus(String paymentStatus) {
+        this.paymentStatus = paymentStatus;
     }
 
     public Order(String productId, String customerEmail, Integer quantity) {
@@ -99,8 +117,8 @@ public class Order {
     public String toString() {
         return "Order [id=" + id + ", productId=" + productId + ", productName=" + productName + ", customerEmail="
                 + customerEmail + ", quantity=" + quantity + ", totalPrice=" + totalPrice + ", status=" + status
-                + ", orderDate=" + orderDate + "]";
+                + ", paymentTransactionId=" + paymentTransactionId + ", paymentStatus=" + paymentStatus + ", orderDate="
+                + orderDate + "]";
     }
-
     
 }
