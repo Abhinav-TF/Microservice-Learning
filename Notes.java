@@ -26,6 +26,14 @@ package com.tnf.product_service;
         8. domain driven design
         9. Automation (CI/CD)
 
+
+    BEST PRACTICE : Always create services in lowercase
+
+    Order of execution of microservices:
+        1. Eureka server
+        2. Config server
+        3. Product service
+        4. API Gateway
 */
 
 public class Notes {

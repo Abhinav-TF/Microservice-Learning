@@ -1,9 +1,9 @@
-server:
-  port: 8084
+# server:
+#   port: 8084
 
 spring:
   application:
-    name: PAYMENT-SERVICE
+    name: payment-service
   data:
     mongodb:
       uri: mongodb://localhost:27017/paymentdb
@@ -19,4 +19,19 @@ eureka:
 logging:
   level:
     com.tnf.payments: DEBUG
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, metrics, beans, httptrace
+  endpoint:
+    health:
+      show-details: always
+
+info:
+    app:
+        name: Payment Service
+        description: Manages payment transactions
+        version: 1.0.0
  

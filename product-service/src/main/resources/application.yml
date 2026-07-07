@@ -1,5 +1,5 @@
-server:
-    port: 8081
+# server:
+#     port: 8081
 
 spring:
     application:
@@ -17,3 +17,18 @@ eureka:
 logging:
     level:
         com.tnf.productservice: DEBUG
+
+management:
+    endpoints:
+        web:
+            exposure:
+                include: health, info, metrics, beans, httptrace
+    endpoint:
+        health:
+            show-details: always
+
+info:
+    app:
+        name: Product Service
+        description: Manages product catalog
+        version: 1.0.0
