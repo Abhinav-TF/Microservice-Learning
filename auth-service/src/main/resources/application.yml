@@ -1,0 +1,29 @@
+server:
+    port: 8085
+
+spring:
+    application:
+        name: auth-service
+    security:
+        user:
+            name: admin
+            password: admin123
+    data:
+        mongodb:
+            uri: mongodb://localhost:27017/authdb
+
+eureka:
+    client:
+        service-url:
+            defaultZone: http://admin:admin123@localhost:8761/eureka/        #The defaultZone property specifies the URL of the Eureka server that this instance will communicate with. In this case, it is set to http://admin:admin123@localhost:8761/eureka/, which means that the Eureka server is running on localhost at port 8761, and the username and password for authentication are admin and admin123, respectively.
+    instance:
+        prefer-ip-address: true
+
+logging:
+    level:
+        com.tnf.auth_service: debug
+
+jwt:
+    secret: TheOneSecretToRuleThemAll
+    expiration: 86400000
+    

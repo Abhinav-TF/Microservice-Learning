@@ -30,6 +30,10 @@ spring:
             args:
               name: paymentServiceCircuitBreaker
               fallbackUri: forward:/fallback/payments
+      - id: auth-service
+        uri: lb://AUTH-SERVICE
+        predicates:
+        - Path=/api/auth/**
 eureka:
   client:
     service-url:
