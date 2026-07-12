@@ -24,6 +24,6 @@ logging:
         com.tnf.auth_service: debug
 
 jwt:
-    secret: TheOneSecretToRuleThemAll
+    secret: TheOneSecretToRuleThemAllSoDoNotTryToGuessIt
     expiration: 86400000
     
