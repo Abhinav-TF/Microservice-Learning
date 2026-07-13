@@ -18,6 +18,13 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                     .requestMatchers("/actuator/**").permitAll()
                     .requestMatchers("/api/auth/**").permitAll()
+                    .requestMatchers(
+                        "/swagger-ui.html",
+                        "/swagger-ui/**",
+                        "/webjars/**",
+                        "/v3/api-docs/**",
+                        "/api/auth/v3/api-docs/**"
+                    ).permitAll()
                     .anyRequest().authenticated()
                 )
                 .httpBasic(Customizer.withDefaults())

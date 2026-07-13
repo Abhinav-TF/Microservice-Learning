@@ -1,5 +1,5 @@
-# server:
-#   port: 8083
+server:
+  port: 8083
 
 spring:
   application:
@@ -25,7 +25,6 @@ spring:
         predicates:
         - Path=/api/payments/**
         filters:
-          - StripPrefix=1
           - name: CircuitBreaker
             args:
               name: paymentServiceCircuitBreaker
@@ -62,3 +61,15 @@ info:
     name: API Gateway
     description: Manages API gatway
     version: 1.0.0
+
+springdoc:
+  swagger-ui:
+    urls:
+    - name: Product Service
+      url: /api/products/v3/api-docs
+    - name: Order Service
+      url: /api/orders/v3/api-docs
+    - name: Payment Service
+      url: /api/payments/v3/api-docs
+    - name: Auth Service
+      url: /api/auth/v3/api-docs

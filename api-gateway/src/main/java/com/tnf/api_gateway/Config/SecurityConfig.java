@@ -22,6 +22,14 @@ public class SecurityConfig {
                 .authorizeExchange(exchange -> exchange
                     .pathMatchers("/actuator/**").permitAll()
                     .pathMatchers("/api/auth/**").permitAll()
+                    .pathMatchers(
+                        "/swagger-ui.html",
+                        "/swagger-ui/**",
+                        "/webjars/**",
+                        "/v3/api-docs/**",
+                        "/api/*/v3/api-docs",
+                        "/api/*/v3/api-docs/**"
+                    ).permitAll()
                     .anyExchange().authenticated()
                 )
                 .httpBasic(httpBasic -> {})
