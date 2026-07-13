@@ -45,7 +45,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: health, info, metrics, beans, httptrace, gateway
+        include: health, info, metrics, beans, httptrace, gateway, prometheus
       base-path: /actuator
   
   endpoint:
@@ -53,6 +53,9 @@ management:
       show-details: always
     gateway:
       access: unrestricted
+  metrics:
+    tags:
+      application: ${spring.application.name}
 
 info:
   app:

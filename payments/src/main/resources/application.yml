@@ -24,10 +24,13 @@ management:
   endpoints:
     web:
       exposure:
-        include: health, info, metrics, beans, httptrace
+        include: health, info, metrics, beans, httptrace, prometheus
   endpoint:
     health:
       show-details: always
+  metrics:
+    tags:
+      application: ${spring.application.name}
 
 info:
     app:
