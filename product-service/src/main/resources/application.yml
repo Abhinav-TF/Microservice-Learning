@@ -4,6 +4,8 @@
 spring:
     application:
         name: product-service
+    profiles:
+        active: dev
     data:
         mongodb:
             uri: mongodb://localhost:27017/productdb
@@ -17,6 +19,7 @@ eureka:
 logging:
     level:
         com.tnf.productservice: DEBUG
+        org.springframework.cloud.sleuth: DEBUG
 
 management:
     endpoints:
@@ -29,6 +32,16 @@ management:
     metrics:
         tags:
             application: ${spring.application.name}
+    tracing:
+        enabled: true
+        sampling:
+            probability: 1.0
+        propagation:
+            type:
+            - B3
+    zipkin:
+        tracing:
+            endpoint: http://localhost:9411/api/v2/spans
 
 info:
     app:

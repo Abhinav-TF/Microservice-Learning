@@ -1,15 +1,12 @@
 # server:
-#     port: 8082
+#     port: 8081
 
 spring:
     application:
-        name: order-service
-    profiles:
-        active:
-        - dev
+        name: product-service
     data:
         mongodb:
-            uri: mongodb://localhost:27017/orderdb
+            uri: mongodb://localhost:27017/productdb
 eureka:
     client:
         service-url:
@@ -19,7 +16,7 @@ eureka:
 
 logging:
     level:
-        com.tnf.orderservice: DEBUG
+        com.tnf.productservice: DEBUG
         org.springframework.cloud.sleuth: DEBUG
 
 management:
@@ -46,6 +43,6 @@ management:
 
 info:
     app:
-        name: Order Service
-        description: Manages order processing
+        name: Product Service
+        description: Manages product catalog
         version: 1.0.0

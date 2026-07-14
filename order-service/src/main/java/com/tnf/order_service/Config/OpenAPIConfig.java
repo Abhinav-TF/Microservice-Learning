@@ -1,4 +1,4 @@
-package com.tnf.auth_service.Config;
+package com.tnf.order_service.Config;
 
 import java.util.List;
 
@@ -13,6 +13,7 @@ import io.swagger.v3.oas.models.servers.Server;
 
 @Configuration
 public class OpenAPIConfig {
+
     @Bean
     public OpenAPI customOpenAPI() {
         // Relative server so Swagger "Try it out" calls go through whatever origin
@@ -20,11 +21,10 @@ public class OpenAPIConfig {
         // which would be a cross-origin, CORS-blocked request ("TypeError: Load failed").
         return new OpenAPI()
                 .servers(List.of(new Server().url("/")))
-                .addSecurityItem(new SecurityRequirement().addList("bearerAuth"))
+                .addSecurityItem(new SecurityRequirement().addList("basicAuth"))
                 .components(new Components()
-                        .addSecuritySchemes("bearerAuth", new SecurityScheme()
+                        .addSecuritySchemes("basicAuth", new SecurityScheme()
                                 .type(SecurityScheme.Type.HTTP)
-                                .scheme("bearer")
-                                .bearerFormat("JWT")));
+                                .scheme("basic")));
     }
 }

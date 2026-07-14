@@ -3,6 +3,8 @@ package com.tnf.auth_service.Util;
 import java.security.Key;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.Function;
@@ -36,9 +38,13 @@ public class JWTUtil {
         return extractClaim(token, Claims::getExpiration);
     }
 
+    @SuppressWarnings("unchecked")
     public Set<String> extractRoles(String token) {
         Claims claims = extractAllClaims(token);
-        return (Set<String>) claims.get("roles", Set.class);
+        // Roles are serialized in the JWT as a JSON array (deserialized as a List),
+        // so read them as a List and convert — JJWT can't auto-convert List -> Set.
+        List<String> roles = claims.get("roles", List.class);
+        return roles == null ? Set.of() : new HashSet<>(roles);
     }
 
     public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {

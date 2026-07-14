@@ -1,35 +1,38 @@
-# server:
-#     port: 8082
+server:
+    port: 8085
 
 spring:
     application:
-        name: order-service
-    profiles:
-        active:
-        - dev
+        name: auth-service
+    security:
+        user:
+            name: admin
+            password: admin123
     data:
         mongodb:
-            uri: mongodb://localhost:27017/orderdb
+            uri: mongodb://localhost:27017/authdb
+
 eureka:
     client:
         service-url:
             defaultZone: http://admin:admin123@localhost:8761/eureka/        #The defaultZone property specifies the URL of the Eureka server that this instance will communicate with. In this case, it is set to http://admin:admin123@localhost:8761/eureka/, which means that the Eureka server is running on localhost at port 8761, and the username and password for authentication are admin and admin123, respectively.
     instance:
-        prefer-ip-address: true                       #This property indicates that the service instance should prefer using its IP address over its hostname when registering with Eureka. This can be useful in certain network configurations where the hostname may not be resolvable or may not be the preferred way to access the service.
+        prefer-ip-address: true
 
 logging:
     level:
-        com.tnf.orderservice: DEBUG
+        com.tnf.productservice: DEBUG
         org.springframework.cloud.sleuth: DEBUG
 
+jwt:
+    secret: TheOneSecretToRuleThemAllSoDoNotTryToGuessIt
+    expiration: 86400000
+    
 management:
     endpoints:
         web:
             exposure:
-                include: health, info, metrics, beans, httptrace, prometheus
-    endpoint:
-        health:
-            show-details: always
+                include: health, info, metrics, prometheus
     metrics:
         tags:
             application: ${spring.application.name}
@@ -43,9 +46,3 @@ management:
     zipkin:
         tracing:
             endpoint: http://localhost:9411/api/v2/spans
-
-info:
-    app:
-        name: Order Service
-        description: Manages order processing
-        version: 1.0.0
