@@ -13,4 +13,4 @@ spring:
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 
 topic:
-  name: messaging-topic
+  name: message-topic

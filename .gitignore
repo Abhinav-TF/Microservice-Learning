@@ -1,2 +1,6 @@
 Questions
 scripts/
+.DS_Store
+.gitignore
+.vscode/settings.json
+logs/
