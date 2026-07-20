@@ -1,51 +1,51 @@
-# server:
-#   port: 8084
+# # server:
+# #   port: 8084
 
-spring:
-  application:
-    name: payment-service
-  data:
-    mongodb:
-      uri: mongodb://localhost:27017/paymentdb
+# spring:
+#   application:
+#     name: payment-service
+#   data:
+#     mongodb:
+#       uri: mongodb://localhost:27017/paymentdb
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://admin:admin123@localhost:8761/eureka/
-#      defaultZone: http://admin:admin123@10.132.125.37:8761/eureka/
-  instance:
-    prefer-ip-address: true
+# eureka:
+#   client:
+#     service-url:
+#       defaultZone: http://admin:admin123@localhost:8761/eureka/
+# #      defaultZone: http://admin:admin123@10.132.125.37:8761/eureka/
+#   instance:
+#     prefer-ip-address: true
 
-logging:
-  level:
-    com.tnf.productservice: DEBUG
-    org.springframework.cloud.sleuth: DEBUG
+# logging:
+#   level:
+#     com.tnf.productservice: DEBUG
+#     org.springframework.cloud.sleuth: DEBUG
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health, info, metrics, beans, httptrace, prometheus
-  endpoint:
-    health:
-      show-details: always
-  metrics:
-    tags:
-      application: ${spring.application.name}
-  tracing:
-    enabled: true
-    sampling:
-      probability: 1.0
-    propagation:
-      type:
-      - B3
-    zipkin:
-      tracing:
-        endpoint: http://localhost:9411/api/v2/spans
+# management:
+#   endpoints:
+#     web:
+#       exposure:
+#         include: health, info, metrics, beans, httptrace, prometheus
+#   endpoint:
+#     health:
+#       show-details: always
+#   metrics:
+#     tags:
+#       application: ${spring.application.name}
+#   tracing:
+#     enabled: true
+#     sampling:
+#       probability: 1.0
+#     propagation:
+#       type:
+#       - B3
+#     zipkin:
+#       tracing:
+#         endpoint: http://localhost:9411/api/v2/spans
 
-info:
-    app:
-        name: Payment Service
-        description: Manages payment transactions
-        version: 1.0.0
+# info:
+#     app:
+#         name: Payment Service
+#         description: Manages payment transactions
+#         version: 1.0.0
  

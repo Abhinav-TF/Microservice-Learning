@@ -39,7 +39,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://admin:admin123@localhost:8761/eureka/
+      defaultZone: ${EUREKA_URL:http://admin:admin123@localhost:8761/eureka/}
   instance:
     prefer-ip-address: true
 
@@ -67,7 +67,7 @@ management:
       - B3
     zipkin:
       tracing:
-        endpoint: http://localhost:9411/api/v2/spans
+        endpoint: ${ZIPKIN_URL:http://localhost:9411/api/v2/spans}
 
 info:
   app:

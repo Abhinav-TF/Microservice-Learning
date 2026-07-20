@@ -9,11 +9,11 @@ spring:
         - dev
     data:
         mongodb:
-            uri: mongodb://localhost:27017/orderdb
+            uri: ${MONGODB_URI:mongodb://localhost:27017/orderdb}
 eureka:
     client:
         service-url:
-            defaultZone: http://admin:admin123@localhost:8761/eureka/        #The defaultZone property specifies the URL of the Eureka server that this instance will communicate with. In this case, it is set to http://admin:admin123@localhost:8761/eureka/, which means that the Eureka server is running on localhost at port 8761, and the username and password for authentication are admin and admin123, respectively.
+            defaultZone: ${EUREKA_URL:http://admin:admin123@localhost:8761/eureka/}        #The defaultZone property specifies the URL of the Eureka server that this instance will communicate with. In this case, it is set to http://admin:admin123@localhost:8761/eureka/, which means that the Eureka server is running on localhost at port 8761, and the username and password for authentication are admin and admin123, respectively.
     instance:
         prefer-ip-address: true                       #This property indicates that the service instance should prefer using its IP address over its hostname when registering with Eureka. This can be useful in certain network configurations where the hostname may not be resolvable or may not be the preferred way to access the service.
 
@@ -42,7 +42,13 @@ management:
             - B3
     zipkin:
         tracing:
-            endpoint: http://localhost:9411/api/v2/spans
+            endpoint: ${ZIPKIN_URL:http://localhost:9411/api/v2/spans}
+
+springdoc:
+    api-docs:
+        path: /v3/api-docs
+    swagger-ui:
+        path: /swagger-ui.html
 
 info:
     app:

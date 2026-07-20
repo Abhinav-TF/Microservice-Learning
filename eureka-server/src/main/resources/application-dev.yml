@@ -1,23 +1,23 @@
-server:
-    port: 8761
+# server:
+#     port: 8761
 
-spring:
-    application:
-        name: eureka-server
-    security:
-        user:
-            name: admin
-            password: admin123
-eureka:
-    instance:
-        hostname: localhost
-    client:
-        register-with-eureka: false                 #As this is a server, it should not register itself with Eureka
-        fetch-registry: false                       #As this is a server, it should not fetch the registry from Eureka
-        service-url:
-            defaultZone: http://admin:admin123@localhost:8761/eureka/        #The defaultZone property specifies the URL of the Eureka server that this instance will communicate with. In this case, it is set to http://admin:admin123@localhost:8761/eureka/, which means that the Eureka server is running on localhost at port 8761, and the username and password for authentication are admin and admin123, respectively.
-    server:
-        enable-self-preservation: false             #Disables self-preservation mode. It prevents the server from going into a state where it stops expiring instances due to a lack of heartbeats. This is useful in development or testing environments where you want to see the effects of instance expiration immediately.
-        eviction-interval-timer-in-ms: 5000         #Checks for expired instances every 5 seconds
+# spring:
+#     application:
+#         name: eureka-server
+#     security:
+#         user:
+#             name: admin
+#             password: admin123
+# eureka:
+#     instance:
+#         hostname: localhost
+#     client:
+#         register-with-eureka: false                 #As this is a server, it should not register itself with Eureka
+#         fetch-registry: false                       #As this is a server, it should not fetch the registry from Eureka
+#         service-url:
+#             defaultZone: http://admin:admin123@localhost:8761/eureka/        #The defaultZone property specifies the URL of the Eureka server that this instance will communicate with. In this case, it is set to http://admin:admin123@localhost:8761/eureka/, which means that the Eureka server is running on localhost at port 8761, and the username and password for authentication are admin and admin123, respectively.
+#     server:
+#         enable-self-preservation: false             #Disables self-preservation mode. It prevents the server from going into a state where it stops expiring instances due to a lack of heartbeats. This is useful in development or testing environments where you want to see the effects of instance expiration immediately.
+#         eviction-interval-timer-in-ms: 5000         #Checks for expired instances every 5 seconds
 
 

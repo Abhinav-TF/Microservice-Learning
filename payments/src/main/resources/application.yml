@@ -9,12 +9,12 @@ spring:
     - dev
   data:
     mongodb:
-      uri: mongodb://localhost:27017/paymentdb
+      uri: ${MONGODB_URI:mongodb://localhost:27017/paymentdb}
 
 eureka:
   client:
     service-url:
-      defaultZone: http://admin:admin123@localhost:8761/eureka/
+      defaultZone: ${EUREKA_URL:http://admin:admin123@localhost:8761/eureka/}
 #      defaultZone: http://admin:admin123@10.132.125.37:8761/eureka/
   instance:
     prefer-ip-address: true
@@ -44,7 +44,7 @@ management:
       - B3
     zipkin:
       tracing:
-        endpoint: http://localhost:9411/api/v2/spans
+        endpoint: ${ZIPKIN_URL:http://localhost:9411/api/v2/spans}
 
 info:
     app:
